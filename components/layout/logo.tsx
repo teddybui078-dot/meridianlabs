@@ -12,9 +12,9 @@ export function Logo({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="meridian-mark" x1="2" y1="2" x2="22" y2="22">
-          <stop offset="0%" stopColor="#bfea90" />
-          <stop offset="55%" stopColor="#97dd5e" />
-          <stop offset="100%" stopColor="#57ab2c" />
+          <stop offset="0%" stopColor="#54d68d" />
+          <stop offset="55%" stopColor="#1cbf65" />
+          <stop offset="100%" stopColor="#108546" />
         </linearGradient>
       </defs>
       <path
