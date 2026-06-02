@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function LinksPage() {
   return (
-    <PageShell title="Links" subtitle="Find us, and everything we keep in the open.">
-      <div className="max-w-[640px] space-y-12">
+    <PageShell title="Links" subtitle="Find us, and everything we keep in the open." maxWidthClass="max-w-[680px]">
+      <div className="space-y-12">
         {linkGroups.map((group) => (
           <section key={group.title}>
             <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-400">
