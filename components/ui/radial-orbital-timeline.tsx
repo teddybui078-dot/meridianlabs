@@ -16,6 +16,8 @@ interface TimelineItem {
   relatedIds: number[];
   status: "completed" | "in-progress" | "pending";
   energy: number;
+  /** Optional badge text; falls back to a LIVE/BETA/BUILDING label from status. */
+  badge?: string;
 }
 
 interface RadialOrbitalTimelineProps {
@@ -26,6 +28,8 @@ interface RadialOrbitalTimelineProps {
   centerLabel?: string;
   /** Override the root container classes (e.g. height) — merged via cn. */
   className?: string;
+  /** Label for the metered bar inside the expanded card. */
+  metricLabel?: string;
 }
 
 export default function RadialOrbitalTimeline({
@@ -33,6 +37,7 @@ export default function RadialOrbitalTimeline({
   centerContent,
   centerLabel,
   className,
+  metricLabel = "Energy Level",
 }: RadialOrbitalTimelineProps) {
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>(
     {}
@@ -301,11 +306,12 @@ export default function RadialOrbitalTimeline({
                             item.status
                           )}`}
                         >
-                          {item.status === "completed"
-                            ? "LIVE"
-                            : item.status === "in-progress"
-                            ? "BETA"
-                            : "BUILDING"}
+                          {item.badge ??
+                            (item.status === "completed"
+                              ? "LIVE"
+                              : item.status === "in-progress"
+                              ? "BETA"
+                              : "BUILDING")}
                         </Badge>
                         <span className="text-xs font-mono text-ink-400">
                           {item.date}
@@ -322,7 +328,7 @@ export default function RadialOrbitalTimeline({
                         <div className="flex justify-between items-center text-xs mb-1">
                           <span className="flex items-center text-ink-500">
                             <Zap size={10} className="mr-1" />
-                            Energy Level
+                            {metricLabel}
                           </span>
                           <span className="font-mono text-ink-700">{item.energy}%</span>
                         </div>

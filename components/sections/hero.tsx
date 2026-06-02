@@ -5,19 +5,17 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Play } from "@phosphor-icons/react/dist/ssr";
 import {
-  Telescope,
-  PenLine,
-  Coins,
-  Library,
-  Receipt,
-  LineChart,
-  type LucideIcon,
+  Lightbulb,
+  Microscope,
+  DraftingCompass,
+  Hammer,
+  Rocket,
+  RefreshCw,
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import { Logo } from "@/components/layout/logo";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { site } from "@/lib/data/site";
-import { projects, type ProjectStatus } from "@/lib/data/projects";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -31,43 +29,85 @@ const fade = {
   }),
 };
 
-/** Per-project orbital metadata: which icon, how "hot" the node glows, and the
- *  graph of connected projects surfaced when a node is expanded. Keyed by slug. */
-const ORBIT_META: Record<
-  string,
-  { icon: LucideIcon; energy: number; relatedSlugs: string[] }
-> = {
-  lumen: { icon: Telescope, energy: 100, relatedSlugs: ["draft", "atlas"] },
-  draft: { icon: PenLine, energy: 92, relatedSlugs: ["lumen"] },
-  stipend: { icon: Coins, energy: 68, relatedSlugs: ["ledger", "signal"] },
-  atlas: { icon: Library, energy: 60, relatedSlugs: ["lumen", "signal"] },
-  ledger: { icon: Receipt, energy: 36, relatedSlugs: ["stipend", "signal"] },
-  signal: { icon: LineChart, energy: 28, relatedSlugs: ["stipend", "atlas", "ledger"] },
-};
-
-const STATUS_MAP: Record<ProjectStatus, "completed" | "in-progress" | "pending"> = {
-  Live: "completed",
-  Beta: "in-progress",
-  Building: "pending",
-};
-
-// Stable id per slug so relatedIds can be resolved from relatedSlugs.
-const idForSlug = new Map(projects.map((p, i) => [p.slug, i + 1]));
-
-const timelineData = projects.map((p, i) => {
-  const meta = ORBIT_META[p.slug];
-  return {
-    id: i + 1,
-    title: p.name,
-    date: p.category,
-    content: p.oneLiner,
-    category: p.category,
-    icon: meta.icon,
-    relatedIds: meta.relatedSlugs.map((s) => idForSlug.get(s)!),
-    status: STATUS_MAP[p.status],
-    energy: meta.energy,
-  };
-});
+/**
+ * How the studio builds — a six-phase loop orbiting the mark. Each phase links
+ * to its neighbours (prev/next), and the badge groups them into three stages
+ * (Discover → Build → Deliver) whose colour deepens around the cycle.
+ */
+const timelineData = [
+  {
+    id: 1,
+    title: "Spark",
+    date: "01",
+    badge: "DISCOVER",
+    content: "Where it starts — a rough idea worth chasing, scoped in a day.",
+    category: "Discover",
+    icon: Lightbulb,
+    relatedIds: [6, 2],
+    status: "pending" as const,
+    energy: 78,
+  },
+  {
+    id: 2,
+    title: "Research",
+    date: "02",
+    badge: "DISCOVER",
+    content: "We read the field, talk to users, and pressure-test the premise.",
+    category: "Discover",
+    icon: Microscope,
+    relatedIds: [1, 3],
+    status: "pending" as const,
+    energy: 66,
+  },
+  {
+    id: 3,
+    title: "Prototype",
+    date: "03",
+    badge: "BUILD",
+    content: "A scrappy build that proves the core interaction actually works.",
+    category: "Build",
+    icon: DraftingCompass,
+    relatedIds: [2, 4],
+    status: "in-progress" as const,
+    energy: 84,
+  },
+  {
+    id: 4,
+    title: "Build",
+    date: "04",
+    badge: "BUILD",
+    content: "The real thing — engineered, tested, and made genuinely fast.",
+    category: "Build",
+    icon: Hammer,
+    relatedIds: [3, 5],
+    status: "in-progress" as const,
+    energy: 100,
+  },
+  {
+    id: 5,
+    title: "Ship",
+    date: "05",
+    badge: "DELIVER",
+    content: "Out the door to real builders, with the rough edges sanded off.",
+    category: "Deliver",
+    icon: Rocket,
+    relatedIds: [4, 6],
+    status: "completed" as const,
+    energy: 90,
+  },
+  {
+    id: 6,
+    title: "Iterate",
+    date: "06",
+    badge: "DELIVER",
+    content: "We watch how it's used and sharpen the one thing that matters.",
+    category: "Deliver",
+    icon: RefreshCw,
+    relatedIds: [5, 1],
+    status: "completed" as const,
+    energy: 72,
+  },
+];
 
 export function Hero() {
   return (
@@ -144,7 +184,8 @@ export function Hero() {
           <RadialOrbitalTimeline
             className="h-full"
             timelineData={timelineData}
-            centerLabel="Meridian Labs"
+            centerLabel="How we build"
+            metricLabel="Focus"
             centerContent={
               <Logo className="size-12 drop-shadow-[0_2px_10px_rgba(28,191,101,0.6)]" />
             }
