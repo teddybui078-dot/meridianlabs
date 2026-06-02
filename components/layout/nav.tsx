@@ -20,7 +20,7 @@ export function Nav() {
       <nav
         className={cn(
           "flex items-center gap-1.5 rounded-full border border-white/10",
-          "bg-ink-950/85 px-2.5 py-2 backdrop-blur-xl",
+          "bg-ink-950 px-2.5 py-2",
           "shadow-[0_16px_44px_-14px_rgba(10,13,16,0.55),0_0_28px_-6px_rgba(28,191,101,0.25),inset_0_1px_0_rgba(255,255,255,0.08)]",
         )}
       >
