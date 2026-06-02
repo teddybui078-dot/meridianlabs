@@ -4,7 +4,14 @@ import * as React from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Play } from "@phosphor-icons/react/dist/ssr";
-import { Cpu, Lock, Gauge, Wrench, GitFork, Heart } from "lucide-react";
+import {
+  Microscope,
+  Palette,
+  Code,
+  BrainCircuit,
+  Package,
+  TrendingUp,
+} from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import { Logo } from "@/components/layout/logo";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
@@ -23,82 +30,82 @@ const fade = {
 };
 
 /**
- * What the studio believes — six principles orbiting the mark. Each links to a
- * couple of kindred principles, and the badge groups them into three stages
- * (Trust → Craft → Spirit) whose colour deepens around the ring.
+ * What the studio does — six capabilities orbiting the mark. Each links to a
+ * couple of related disciplines, and the badge groups them into three stages
+ * (Think → Make → Move) whose colour deepens around the ring.
  */
 const timelineData = [
   {
     id: 1,
-    title: "On-device",
+    title: "Research",
     date: "01",
-    badge: "TRUST",
-    content: "The model runs on your machine. Your work never has to leave it.",
-    category: "Trust",
-    icon: Cpu,
-    relatedIds: [2, 3],
+    badge: "THINK",
+    content: "We read the field and the user before we write a line of code.",
+    category: "Think",
+    icon: Microscope,
+    relatedIds: [2, 4],
     status: "pending" as const,
-    energy: 96,
+    energy: 88,
   },
   {
     id: 2,
-    title: "Private",
+    title: "Design",
     date: "02",
-    badge: "TRUST",
-    content: "We collect as little as possible, and never sell what we do.",
-    category: "Trust",
-    icon: Lock,
+    badge: "THINK",
+    content: "Interfaces that feel obvious — taste applied with intent.",
+    category: "Think",
+    icon: Palette,
     relatedIds: [1, 5],
     status: "pending" as const,
     energy: 92,
   },
   {
     id: 3,
-    title: "Fast",
+    title: "Engineering",
     date: "03",
-    badge: "CRAFT",
-    content: "If it isn't instant it breaks flow. Speed is a feature, not a tweak.",
-    category: "Craft",
-    icon: Gauge,
-    relatedIds: [1, 4],
+    badge: "MAKE",
+    content: "Fast, reliable systems that hold up once real people arrive.",
+    category: "Make",
+    icon: Code,
+    relatedIds: [4, 5],
     status: "in-progress" as const,
-    energy: 88,
+    energy: 100,
   },
   {
     id: 4,
-    title: "Practical",
+    title: "Models",
     date: "04",
-    badge: "CRAFT",
-    content: "We ship tools people actually use, not demos that only impress.",
-    category: "Craft",
-    icon: Wrench,
-    relatedIds: [3, 6],
+    badge: "MAKE",
+    content: "Choosing, tuning, and running the right model for the job.",
+    category: "Make",
+    icon: BrainCircuit,
+    relatedIds: [1, 3],
     status: "in-progress" as const,
-    energy: 100,
+    energy: 90,
   },
   {
     id: 5,
-    title: "Open",
+    title: "Product",
     date: "05",
-    badge: "SPIRIT",
-    content: "We build on open models and give back what we can to the commons.",
-    category: "Spirit",
-    icon: GitFork,
+    badge: "MOVE",
+    content: "Turning a raw capability into something worth coming back to.",
+    category: "Move",
+    icon: Package,
     relatedIds: [2, 6],
     status: "completed" as const,
-    energy: 80,
+    energy: 84,
   },
   {
     id: 6,
-    title: "Human",
+    title: "Growth",
     date: "06",
-    badge: "SPIRIT",
-    content: "AI should make people more capable — never replace their judgment.",
-    category: "Spirit",
-    icon: Heart,
-    relatedIds: [4, 5],
+    badge: "MOVE",
+    content: "Getting the work in front of the builders who actually need it.",
+    category: "Move",
+    icon: TrendingUp,
+    relatedIds: [5, 3],
     status: "completed" as const,
-    energy: 100,
+    energy: 72,
   },
 ];
 
@@ -177,8 +184,8 @@ export function Hero() {
           <RadialOrbitalTimeline
             className="h-full"
             timelineData={timelineData}
-            centerLabel="What we believe"
-            metricLabel="Conviction"
+            centerLabel="What we do"
+            metricLabel="Depth"
             centerContent={
               <Logo className="size-12 drop-shadow-[0_2px_10px_rgba(28,191,101,0.6)]" />
             }
