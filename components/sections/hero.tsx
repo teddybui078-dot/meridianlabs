@@ -75,17 +75,6 @@ export function Hero() {
       <div className="mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-6 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-4 lg:px-10">
         {/* Left — editorial headline / tagline / CTA */}
         <div className="order-2 flex flex-col items-center pb-12 text-center lg:order-1 lg:items-start lg:pb-0 lg:text-left">
-          <motion.span
-            custom={0}
-            variants={fade}
-            initial="hidden"
-            animate="show"
-            className="inline-flex items-center gap-2 rounded-full border border-ink-950/[0.08] bg-white/60 px-3 py-1 text-[12px] font-medium uppercase tracking-[0.18em] text-ink-500 backdrop-blur-sm"
-          >
-            <span className="size-1.5 rounded-full bg-emerald-400 ambient-pulse" />
-            {site.tagline}
-          </motion.span>
-
           {/* semantic heading for a11y/SEO; the visual headline is the typewriter */}
           <h1 className="sr-only">Building cool AI projects.</h1>
           <TypewriterEffect
@@ -95,7 +84,7 @@ export function Hero() {
               { text: "AI" },
               { text: "projects." },
             ]}
-            className="mt-6 text-[clamp(2.4rem,6vw,4.5rem)] font-semibold leading-[1.0] tracking-[-0.04em]"
+            className="text-[clamp(2.4rem,6vw,4.5rem)] font-semibold leading-[1.0] tracking-[-0.04em]"
             cursorClassName="bg-emerald-500 h-7 md:h-9 lg:h-11"
           />
 
