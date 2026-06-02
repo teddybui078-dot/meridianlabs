@@ -28,24 +28,24 @@ export function Hero() {
         </motion.div>
 
         {/* punchy headline */}
-        <h1 className="mt-8 text-[clamp(2.6rem,7vw,5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-ink-950">
+        <h1 className="mt-8 text-[clamp(2.6rem,7vw,5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-ink-50">
           <motion.span custom={1} variants={fade} initial="hidden" animate="show" className="block">
             We build AI tools
           </motion.span>
           <motion.span custom={2} variants={fade} initial="hidden" animate="show" className="block">
-            people <span className="text-emerald-500">actually</span> use.
+            people <span className="text-emerald-300">actually</span> use.
           </motion.span>
         </h1>
 
-        {/* dark pill CTA */}
+        {/* green pill CTA */}
         <motion.div custom={3} variants={fade} initial="hidden" animate="show" className="mt-10">
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-ink-950 py-3 pl-6 pr-3 text-sm font-medium text-white shadow-[0_12px_30px_-10px_rgba(10,13,16,0.5)] transition-colors hover:bg-ink-800"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-emerald-400 py-3 pl-6 pr-3 text-sm font-semibold text-ink-950 shadow-[0_14px_40px_-10px_rgba(28,191,101,0.6),inset_0_1px_0_rgba(255,255,255,0.3)] transition-colors hover:bg-emerald-300"
           >
             View Projects
-            <span className="grid size-7 place-items-center rounded-full bg-white/15 transition-transform duration-300 ease-[var(--ease-out-quint)] group-hover:translate-x-0.5">
-              <Play weight="fill" className="size-3 text-white" />
+            <span className="grid size-7 place-items-center rounded-full bg-ink-950/15 transition-transform duration-300 ease-[var(--ease-out-quint)] group-hover:translate-x-0.5">
+              <Play weight="fill" className="size-3 text-ink-950" />
             </span>
           </Link>
         </motion.div>

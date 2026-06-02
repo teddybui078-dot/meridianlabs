@@ -9,20 +9,22 @@ export function HomeBackground() {
         className="absolute inset-0"
         style={{
           background:
-            // aurora of green blooms rising from the bottom + clean white top
-            "radial-gradient(58% 48% at 16% 104%, rgba(120,226,140,0.50), transparent 60%)," +
-            "radial-gradient(54% 46% at 88% 98%, rgba(16,178,118,0.46), transparent 58%)," +
-            "radial-gradient(95% 75% at 50% 122%, rgba(28,191,101,0.55), transparent 64%)," +
-            "linear-gradient(180deg, #ffffff 0%, #f5fdf9 40%, rgba(28,191,101,0.05) 74%, rgba(28,191,101,0.10) 100%)",
+            // green aurora rising from the bottom over a near-black top
+            "radial-gradient(56% 50% at 14% 108%, rgba(40,210,130,0.50), transparent 60%)," +
+            "radial-gradient(52% 48% at 88% 102%, rgba(20,150,210,0.30), transparent 58%)," +
+            "radial-gradient(80% 60% at 70% 118%, rgba(120,235,150,0.40), transparent 60%)," +
+            "radial-gradient(100% 80% at 50% 124%, rgba(28,191,101,0.62), transparent 64%)," +
+            "radial-gradient(70% 50% at 50% -8%, rgba(28,191,101,0.12), transparent 58%)," +
+            "var(--color-ink-950)",
         }}
       />
       <div
         className="grid-overlay absolute inset-0"
         style={{
           maskImage:
-            "radial-gradient(125% 100% at 50% 28%, black 32%, transparent 88%)",
+            "radial-gradient(130% 110% at 50% 24%, black 30%, transparent 86%)",
           WebkitMaskImage:
-            "radial-gradient(125% 100% at 50% 28%, black 32%, transparent 88%)",
+            "radial-gradient(130% 110% at 50% 24%, black 30%, transparent 86%)",
         }}
       />
     </div>
