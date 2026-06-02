@@ -41,7 +41,7 @@ export function Nav() {
               href={l.href}
               className={cn(
                 "relative rounded-full px-3.5 py-1.5 text-[13px] transition-colors",
-                isActive(l.href) ? "text-white" : "text-ink-300 hover:text-white",
+                isActive(l.href) ? "text-white" : "text-white/80 hover:text-white",
               )}
             >
               {isActive(l.href) && (
