@@ -4,14 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Play } from "@phosphor-icons/react/dist/ssr";
-import {
-  Lightbulb,
-  Microscope,
-  DraftingCompass,
-  Hammer,
-  Rocket,
-  RefreshCw,
-} from "lucide-react";
+import { Cpu, Lock, Gauge, Wrench, GitFork, Heart } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import { Logo } from "@/components/layout/logo";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
@@ -30,82 +23,82 @@ const fade = {
 };
 
 /**
- * How the studio builds — a six-phase loop orbiting the mark. Each phase links
- * to its neighbours (prev/next), and the badge groups them into three stages
- * (Discover → Build → Deliver) whose colour deepens around the cycle.
+ * What the studio believes — six principles orbiting the mark. Each links to a
+ * couple of kindred principles, and the badge groups them into three stages
+ * (Trust → Craft → Spirit) whose colour deepens around the ring.
  */
 const timelineData = [
   {
     id: 1,
-    title: "Spark",
+    title: "On-device",
     date: "01",
-    badge: "DISCOVER",
-    content: "Where it starts — a rough idea worth chasing, scoped in a day.",
-    category: "Discover",
-    icon: Lightbulb,
-    relatedIds: [6, 2],
+    badge: "TRUST",
+    content: "The model runs on your machine. Your work never has to leave it.",
+    category: "Trust",
+    icon: Cpu,
+    relatedIds: [2, 3],
     status: "pending" as const,
-    energy: 78,
+    energy: 96,
   },
   {
     id: 2,
-    title: "Research",
+    title: "Private",
     date: "02",
-    badge: "DISCOVER",
-    content: "We read the field, talk to users, and pressure-test the premise.",
-    category: "Discover",
-    icon: Microscope,
-    relatedIds: [1, 3],
+    badge: "TRUST",
+    content: "We collect as little as possible, and never sell what we do.",
+    category: "Trust",
+    icon: Lock,
+    relatedIds: [1, 5],
     status: "pending" as const,
-    energy: 66,
+    energy: 92,
   },
   {
     id: 3,
-    title: "Prototype",
+    title: "Fast",
     date: "03",
-    badge: "BUILD",
-    content: "A scrappy build that proves the core interaction actually works.",
-    category: "Build",
-    icon: DraftingCompass,
-    relatedIds: [2, 4],
+    badge: "CRAFT",
+    content: "If it isn't instant it breaks flow. Speed is a feature, not a tweak.",
+    category: "Craft",
+    icon: Gauge,
+    relatedIds: [1, 4],
     status: "in-progress" as const,
-    energy: 84,
+    energy: 88,
   },
   {
     id: 4,
-    title: "Build",
+    title: "Practical",
     date: "04",
-    badge: "BUILD",
-    content: "The real thing — engineered, tested, and made genuinely fast.",
-    category: "Build",
-    icon: Hammer,
-    relatedIds: [3, 5],
+    badge: "CRAFT",
+    content: "We ship tools people actually use, not demos that only impress.",
+    category: "Craft",
+    icon: Wrench,
+    relatedIds: [3, 6],
     status: "in-progress" as const,
     energy: 100,
   },
   {
     id: 5,
-    title: "Ship",
+    title: "Open",
     date: "05",
-    badge: "DELIVER",
-    content: "Out the door to real builders, with the rough edges sanded off.",
-    category: "Deliver",
-    icon: Rocket,
-    relatedIds: [4, 6],
+    badge: "SPIRIT",
+    content: "We build on open models and give back what we can to the commons.",
+    category: "Spirit",
+    icon: GitFork,
+    relatedIds: [2, 6],
     status: "completed" as const,
-    energy: 90,
+    energy: 80,
   },
   {
     id: 6,
-    title: "Iterate",
+    title: "Human",
     date: "06",
-    badge: "DELIVER",
-    content: "We watch how it's used and sharpen the one thing that matters.",
-    category: "Deliver",
-    icon: RefreshCw,
-    relatedIds: [5, 1],
+    badge: "SPIRIT",
+    content: "AI should make people more capable — never replace their judgment.",
+    category: "Spirit",
+    icon: Heart,
+    relatedIds: [4, 5],
     status: "completed" as const,
-    energy: 72,
+    energy: 100,
   },
 ];
 
@@ -184,8 +177,8 @@ export function Hero() {
           <RadialOrbitalTimeline
             className="h-full"
             timelineData={timelineData}
-            centerLabel="How we build"
-            metricLabel="Focus"
+            centerLabel="What we believe"
+            metricLabel="Conviction"
             centerContent={
               <Logo className="size-12 drop-shadow-[0_2px_10px_rgba(28,191,101,0.6)]" />
             }
