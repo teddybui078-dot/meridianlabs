@@ -27,9 +27,9 @@ export function Nav() {
         <Link
           href="/"
           aria-label={site.name}
-          className="flex size-8 items-center justify-center"
+          className="flex size-9 items-center justify-center"
         >
-          <Logo />
+          <Logo className="size-8" />
         </Link>
 
         <span className="mx-1 h-5 w-px bg-ink-950/10" aria-hidden />
