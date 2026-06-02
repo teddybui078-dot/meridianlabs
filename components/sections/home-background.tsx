@@ -9,7 +9,11 @@ export function HomeBackground() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, #ffffff 0%, #f1fcf6 32%, rgba(28,191,101,0.22) 72%, rgba(28,191,101,0.42) 100%)",
+            // aurora of green blooms rising from the bottom + clean white top
+            "radial-gradient(58% 48% at 16% 104%, rgba(120,226,140,0.50), transparent 60%)," +
+            "radial-gradient(54% 46% at 88% 98%, rgba(16,178,118,0.46), transparent 58%)," +
+            "radial-gradient(95% 75% at 50% 122%, rgba(28,191,101,0.55), transparent 64%)," +
+            "linear-gradient(180deg, #ffffff 0%, #f5fdf9 40%, rgba(28,191,101,0.05) 74%, rgba(28,191,101,0.10) 100%)",
         }}
       />
       <div
