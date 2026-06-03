@@ -29,7 +29,7 @@ export function Nav() {
           aria-label={site.name}
           className="flex items-center gap-2 pl-1.5 pr-1"
         >
-          <Logo className="size-6" />
+          <Logo className="h-4 w-auto" />
           <span className="text-[14px] font-semibold tracking-tight text-ink-950">
             Teddy Bui
           </span>
