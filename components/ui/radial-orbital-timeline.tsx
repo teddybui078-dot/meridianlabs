@@ -191,13 +191,13 @@ export default function RadialOrbitalTimeline({
           }}
         >
           <div className="absolute flex flex-col items-center justify-center z-10">
-            <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-emerald-300 via-emerald-500 to-emerald-700 flex items-center justify-center shadow-[0_0_44px_-6px_rgba(28,191,101,0.7)]">
-              <div className="absolute w-24 h-24 rounded-full border border-emerald-300/30 animate-ping opacity-70"></div>
+            <div className="relative w-20 h-20 rounded-full bg-ink-950 flex items-center justify-center shadow-[0_0_44px_-6px_rgba(22,18,13,0.55)]">
+              <div className="absolute w-24 h-24 rounded-full border border-ink-950/25 animate-ping opacity-70"></div>
               <div
-                className="absolute w-28 h-28 rounded-full border border-emerald-300/15 animate-ping opacity-50"
+                className="absolute w-28 h-28 rounded-full border border-ink-950/15 animate-ping opacity-50"
                 style={{ animationDelay: "0.5s" }}
               ></div>
-              <div className="grid place-items-center w-14 h-14 rounded-full bg-white/90 backdrop-blur-md ring-1 ring-emerald-500/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+              <div className="grid place-items-center w-14 h-14 rounded-full bg-cream backdrop-blur-md ring-1 ring-ink-950/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
                 {centerContent ?? (
                   <div className="w-8 h-8 rounded-full bg-ink-900/80 backdrop-blur-md"></div>
                 )}
@@ -252,7 +252,7 @@ export default function RadialOrbitalTimeline({
                     isPulsing ? "animate-pulse duration-1000" : ""
                   }`}
                   style={{
-                    background: `radial-gradient(circle, rgba(28,191,101,0.28) 0%, rgba(28,191,101,0) 70%)`,
+                    background: `radial-gradient(circle, rgba(22,18,13,0.18) 0%, rgba(22,18,13,0) 70%)`,
                     width: `${item.energy * 0.5 + 40}px`,
                     height: `${item.energy * 0.5 + 40}px`,
                     left: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,

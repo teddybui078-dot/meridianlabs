@@ -19,7 +19,7 @@ export function SiteBackground() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, #ffffff 0%, #f1fcf6 32%, rgba(28,191,101,0.22) 72%, rgba(28,191,101,0.42) 100%)",
+              "linear-gradient(180deg, #f5efe2 0%, #efe6d4 34%, #e3d4b6 74%, #d8c8a6 100%)",
           }}
         />
       )}
@@ -27,7 +27,7 @@ export function SiteBackground() {
         variant="dots"
         mask="fade-center"
         size={22}
-        fill="rgba(10,13,16,0.13)"
+        fill="rgba(22,18,13,0.1)"
         className="z-0"
       />
     </div>

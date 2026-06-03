@@ -29,7 +29,7 @@ export default function RootLayout({
       lang="en"
       className="h-full antialiased"
     >
-      <body className="relative min-h-full bg-white text-ink-950 selection:bg-emerald-400 selection:text-white">
+      <body className="relative min-h-full bg-cream text-ink-950 selection:bg-ink-950 selection:text-cream">
         <Nav />
         <main className="relative z-10">
           <SiteBackground />

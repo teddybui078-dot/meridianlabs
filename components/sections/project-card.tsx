@@ -20,7 +20,7 @@ export function ProjectCard({
         className="group flex h-full flex-col"
       >
         {/* preview */}
-        <div className="relative overflow-hidden rounded-2xl border border-ink-950/[0.07] bg-white shadow-[0_1px_2px_rgba(10,13,16,0.04),0_12px_30px_-18px_rgba(10,13,16,0.18)] transition-shadow duration-300 group-hover:shadow-[0_2px_4px_rgba(10,13,16,0.05),0_22px_50px_-22px_rgba(28,191,101,0.4)]">
+        <div className="relative overflow-hidden rounded-2xl border border-ink-950/[0.07] bg-card shadow-[0_1px_2px_rgba(22,18,13,0.05),0_12px_30px_-18px_rgba(22,18,13,0.16)] transition-shadow duration-300 group-hover:shadow-[0_2px_4px_rgba(22,18,13,0.06),0_22px_50px_-22px_rgba(22,18,13,0.28)]">
           <div className="flex items-center gap-1.5 px-4 pt-4">
             <span className="size-2 rounded-full bg-ink-950/10" />
             <span className="size-2 rounded-full bg-ink-950/10" />
@@ -28,13 +28,13 @@ export function ProjectCard({
           </div>
 
           <div className="relative grid h-44 place-items-center">
-            {/* green wash */}
+            {/* beige wash */}
             <div
               aria-hidden
               className="pointer-events-none absolute inset-x-0 bottom-0 h-32"
               style={{
                 background:
-                  "radial-gradient(120% 90% at 50% 130%, rgba(28,191,101,0.28), rgba(28,191,101,0) 60%)",
+                  "radial-gradient(120% 90% at 50% 130%, rgba(203,184,146,0.55), rgba(203,184,146,0) 60%)",
               }}
             />
             <div
@@ -42,10 +42,10 @@ export function ProjectCard({
               className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               style={{
                 background:
-                  "radial-gradient(120% 90% at 50% 130%, rgba(28,191,101,0.22), rgba(28,191,101,0) 55%)",
+                  "radial-gradient(120% 90% at 50% 130%, rgba(203,184,146,0.45), rgba(203,184,146,0) 55%)",
               }}
             />
-            <span className="relative grid size-14 place-items-center rounded-2xl border border-emerald-400/30 bg-emerald-50 text-2xl font-semibold tracking-tight text-emerald-600 shadow-[0_8px_24px_-10px_rgba(28,191,101,0.5)]">
+            <span className="relative grid size-14 place-items-center rounded-2xl border border-ink-950/15 bg-beige text-2xl font-semibold tracking-tight text-ink-950 shadow-[0_8px_24px_-10px_rgba(22,18,13,0.3)]">
               {project.name.charAt(0)}
             </span>
           </div>

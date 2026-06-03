@@ -135,7 +135,7 @@ export function Hero() {
             timelineData={timelineData}
             centerLabel="Meridian Labs"
             centerContent={
-              <Logo className="size-12 drop-shadow-[0_2px_10px_rgba(28,191,101,0.6)]" />
+              <Logo className="size-12 drop-shadow-[0_2px_8px_rgba(22,18,13,0.3)]" />
             }
           />
         </motion.div>

@@ -5,32 +5,40 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Neutral ink ramp — 950 = near-black text, 50 = near-white surface */
-  --color-ink-50: #f6f7f8;
-  --color-ink-100: #eceef0;
-  --color-ink-200: #dce0e3;
-  --color-ink-300: #b7bdc3;
-  --color-ink-400: #8b939b;
-  --color-ink-500: #646c74;
-  --color-ink-600: #474e55;
-  --color-ink-700: #333940;
-  --color-ink-800: #20252b;
-  --color-ink-900: #12161a;
-  --color-ink-950: #0a0d10;
+  /* Warm ink ramp — 950 = warm near-black text, 50 = pale sand.
+     This is the text/neutral scale; black (ink-950) is the only "accent". */
+  --color-ink-50: #f6f0e4;
+  --color-ink-100: #ece3d2;
+  --color-ink-200: #ddd0b9;
+  --color-ink-300: #c3b59a;
+  --color-ink-400: #9d8e76;
+  --color-ink-500: #786a56;
+  --color-ink-600: #5b4f3f;
+  --color-ink-700: #443a2d;
+  --color-ink-800: #2d271e;
+  --color-ink-900: #1d1812;
+  --color-ink-950: #16120d;
 
-  /* Green accent — anchored on the user's #1cbf65 (emerald-400 = primary) */
-  --color-emerald-50: #e8faf0;
-  --color-emerald-100: #c5f2da;
-  --color-emerald-200: #93e7b8;
-  --color-emerald-300: #54d68d;
-  --color-emerald-400: #1cbf65;
-  --color-emerald-500: #15a657;
-  --color-emerald-600: #108546;
-  --color-emerald-700: #0e6a39;
-  --color-emerald-800: #0d532e;
-  --color-emerald-900: #0a3a21;
+  /* Beige + cream — the main surface palette */
+  --color-cream: #f5efe2;
+  --color-cream-deep: #efe6d4;
+  --color-beige: #e8dcc6;
+  --color-beige-deep: #dccdb0;
+  --color-sand: #cbb892;
 
-  --color-signal: #1cbf65;
+  /* Legacy "emerald" scale repointed onto the warm ink/black scale so existing
+     accent classes degrade to in-palette black/beige instead of green. */
+  --color-emerald-50: #f0e7d5;
+  --color-emerald-100: #e6d9c1;
+  --color-emerald-200: #c3b59a;
+  --color-emerald-300: #9d8e76;
+  --color-emerald-400: #16120d;
+  --color-emerald-500: #1d1812;
+  --color-emerald-600: #16120d;
+  --color-emerald-700: #16120d;
+  --color-emerald-800: #16120d;
+  --color-emerald-900: #16120d;
+  --color-signal: #16120d;
 
   /* Apple system fonts — resolves to SF Pro on macOS/iOS */
   --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -41,31 +49,30 @@
   --ease-in-out-quint: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 
-  /* shadcn/ui token layer — mapped onto the light ink + emerald palette so
-     primitives (badge/button/card) resolve `bg-primary`, `border-input`, etc. */
-  --color-background: #ffffff;
+  /* shadcn token layer — mapped onto the beige/cream + black palette */
+  --color-background: var(--color-cream);
   --color-foreground: var(--color-ink-950);
-  --color-card: #ffffff;
+  --color-card: #faf6ec;
   --color-card-foreground: var(--color-ink-950);
-  --color-popover: #ffffff;
+  --color-popover: #faf6ec;
   --color-popover-foreground: var(--color-ink-950);
   --color-primary: var(--color-ink-950);
-  --color-primary-foreground: #ffffff;
-  --color-secondary: var(--color-ink-100);
+  --color-primary-foreground: var(--color-cream);
+  --color-secondary: var(--color-beige);
   --color-secondary-foreground: var(--color-ink-900);
-  --color-muted: var(--color-ink-100);
+  --color-muted: var(--color-beige);
   --color-muted-foreground: var(--color-ink-500);
-  --color-accent: var(--color-emerald-400);
-  --color-accent-foreground: #ffffff;
-  --color-destructive: #e5484d;
+  --color-accent: var(--color-ink-950);
+  --color-accent-foreground: var(--color-cream);
+  --color-destructive: #b3402f;
   --color-destructive-foreground: #ffffff;
-  --color-border: rgba(10, 13, 16, 0.1);
-  --color-input: rgba(10, 13, 16, 0.14);
-  --color-ring: var(--color-emerald-400);
+  --color-border: rgba(22, 18, 13, 0.12);
+  --color-input: rgba(22, 18, 13, 0.16);
+  --color-ring: var(--color-ink-950);
 }
 
 :root {
-  --background: #ffffff;
+  --background: var(--color-cream);
   --foreground: var(--color-ink-950);
 }
 
@@ -78,24 +85,24 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Light base wash — a whisper of green at the top, white everywhere else */
+/* Warm base wash — a deeper beige bloom at the top fading into cream */
 body {
   background:
-    radial-gradient(1200px 620px at 50% -22%, rgba(28, 191, 101, 0.06), transparent 62%),
-    #ffffff;
+    radial-gradient(1200px 640px at 50% -22%, rgba(203, 184, 146, 0.45), transparent 64%),
+    var(--color-cream);
 }
 
-/* Faint hairline grid (light surfaces) */
+/* Faint hairline grid (warm) */
 .grid-overlay {
   background-image:
-    linear-gradient(to right, rgba(10, 13, 16, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(10, 13, 16, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(22, 18, 13, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 18, 13, 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
 @keyframes ambient-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(28, 191, 101, 0.45); }
-  50%      { box-shadow: 0 0 0 6px rgba(28, 191, 101, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(22, 18, 13, 0.4); }
+  50%      { box-shadow: 0 0 0 6px rgba(22, 18, 13, 0); }
 }
 
 .ambient-pulse {
@@ -119,8 +126,8 @@ button:active,
 }
 
 ::selection {
-  background: var(--color-emerald-400);
-  color: #ffffff;
+  background: var(--color-ink-950);
+  color: var(--color-cream);
 }
 
 ::-webkit-scrollbar {
@@ -131,9 +138,9 @@ button:active,
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(10, 13, 16, 0.14);
+  background: rgba(22, 18, 13, 0.18);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(10, 13, 16, 0.26);
+  background: rgba(22, 18, 13, 0.3);
 }

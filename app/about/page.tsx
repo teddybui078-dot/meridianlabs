@@ -29,13 +29,13 @@ export default function AboutPage() {
           <figure className="mt-10 max-w-[380px] overflow-hidden rounded-2xl border border-ink-950/10 bg-ink-950 shadow-[0_30px_70px_-30px_rgba(10,13,16,0.5)]">
             <figcaption className="grid grid-cols-[1fr_auto_1fr] items-center border-b border-white/10 px-4 py-3">
               <div className="flex items-center gap-2">
-                <span className="size-3 rounded-full bg-[#ff5f57]" />
-                <span className="size-3 rounded-full bg-[#febc2e]" />
-                <span className="size-3 rounded-full bg-[#28c840]" />
+                <span className="size-3 rounded-full bg-cream/40" />
+                <span className="size-3 rounded-full bg-cream/60" />
+                <span className="size-3 rounded-full bg-cream/80" />
               </div>
-              <span className="text-xs font-medium text-white/70">Teddy</span>
+              <span className="text-xs font-medium text-cream/70">Teddy</span>
               <div className="flex justify-end">
-                <Logo className="size-4" />
+                <Logo className="size-4 invert" />
               </div>
             </figcaption>
             {/* Placeholder — swap the src for a real photo of the founder */}
