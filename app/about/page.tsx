@@ -35,9 +35,7 @@ export default function AboutPage() {
               </div>
               <span className="text-xs font-medium text-cream/70">Teddy</span>
               <div className="flex justify-end">
-                <span className="inline-flex items-center rounded-md bg-beige px-1.5 py-1">
-                  <Logo className="h-3 w-auto text-ink-950" />
-                </span>
+                <Logo className="h-3 w-auto text-cream" />
               </div>
             </figcaption>
             <Image
