@@ -13,8 +13,8 @@ import {
   LineChart,
   type LucideIcon,
 } from "lucide-react";
+import Image from "next/image";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
-import { Logo } from "@/components/layout/logo";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { site } from "@/lib/data/site";
 import { projects, type ProjectStatus } from "@/lib/data/projects";
@@ -135,7 +135,14 @@ export function Hero() {
             timelineData={timelineData}
             centerLabel="Teddy Bui"
             centerContent={
-              <Logo className="size-12 drop-shadow-[0_2px_8px_rgba(22,18,13,0.3)]" />
+              <Image
+                src="/gitpfp.png"
+                alt="Teddy Bui"
+                width={1446}
+                height={1936}
+                priority
+                className="size-14 rounded-full object-cover"
+              />
             }
           />
         </motion.div>
