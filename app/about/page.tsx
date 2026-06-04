@@ -6,11 +6,11 @@ import { Logo } from "@/components/layout/logo";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "How Meridian Labs works — a studio, not a startup.",
+  description: "About Teddy Bui, the builder behind the projects.",
 };
 
 const INTRO = [
-  "Hi! My name is Teddy, and welcome to Meridian Labs, a studio where I launch cool AI projects. They're small, sharp tools for students and founders that quietly take the friction out of getting things done.",
+  "Hi! My name is Teddy, and welcome to my studio, where I launch cool AI projects. They're small, sharp tools for students and founders that quietly take the friction out of getting things done.",
   "I like building fast, shipping often, and using AI. Everything here is made to be quick, private, and genuinely useful, and the experiments that work are the ones I keep.",
 ];
 
