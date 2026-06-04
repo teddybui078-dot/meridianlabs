@@ -76,11 +76,11 @@ export function Hero() {
         {/* Left — editorial headline / tagline / CTA */}
         <div className="order-2 flex flex-col items-center pb-12 text-center lg:order-1 lg:items-start lg:pb-0 lg:text-left">
           {/* semantic heading for a11y/SEO; the visual headline is the typewriter */}
-          <h1 className="sr-only">Building cool AI projects.</h1>
+          <h1 className="sr-only">Building aspiring AI projects.</h1>
           <TypewriterEffect
             words={[
               { text: "Building" },
-              { text: "cool", className: "text-emerald-600 dark:text-emerald-600" },
+              { text: "aspiring", className: "text-emerald-600 dark:text-emerald-600" },
               { text: "AI" },
               { text: "projects." },
             ]}
