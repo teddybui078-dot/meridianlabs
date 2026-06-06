@@ -71,7 +71,7 @@ export const orbit: OrbitNode[] = [
     kind: "FOCUS",
     tag: "principle",
     blurb:
-      "Small, sharp, and private. Quick to use, on-device where it can be — your work shouldn't have to leave the machine to be useful.",
+      "I keep my tools small, sharp, and private — quick to use and on-device where I can, so your work never has to leave your machine to be useful.",
     icon: PenTool,
     focus: 68,
     related: ["Builder", "AI for builders"],
