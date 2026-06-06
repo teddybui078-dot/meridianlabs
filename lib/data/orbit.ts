@@ -82,7 +82,7 @@ export const orbit: OrbitNode[] = [
     kind: "GOAL",
     tag: "next",
     blurb:
-      "Turn one of these experiments into something people actually rely on — real users, real feedback, in the open.",
+      "I want to turn one of these experiments into something people actually rely on — real users, real feedback, in the open.",
     icon: Rocket,
     focus: 74,
     related: ["Builder", "Build in public"],
