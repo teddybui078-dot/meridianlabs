@@ -4,20 +4,11 @@ import * as React from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Play } from "@phosphor-icons/react/dist/ssr";
-import {
-  Telescope,
-  PenLine,
-  Coins,
-  Library,
-  Receipt,
-  LineChart,
-  type LucideIcon,
-} from "lucide-react";
 import Image from "next/image";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { site } from "@/lib/data/site";
-import { projects, type ProjectStatus } from "@/lib/data/projects";
+import { orbit } from "@/lib/data/orbit";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -31,43 +22,21 @@ const fade = {
   }),
 };
 
-/** Per-project orbital metadata: which icon, how "hot" the node glows, and the
- *  graph of connected projects surfaced when a node is expanded. Keyed by slug. */
-const ORBIT_META: Record<
-  string,
-  { icon: LucideIcon; energy: number; relatedSlugs: string[] }
-> = {
-  lumen: { icon: Telescope, energy: 100, relatedSlugs: ["draft", "atlas"] },
-  draft: { icon: PenLine, energy: 92, relatedSlugs: ["lumen"] },
-  stipend: { icon: Coins, energy: 68, relatedSlugs: ["ledger", "signal"] },
-  atlas: { icon: Library, energy: 60, relatedSlugs: ["lumen", "signal"] },
-  ledger: { icon: Receipt, energy: 36, relatedSlugs: ["stipend", "signal"] },
-  signal: { icon: LineChart, energy: 28, relatedSlugs: ["stipend", "atlas", "ledger"] },
-};
+// Stable id per node title so `related` titles can be resolved to ids.
+const idForTitle = new Map(orbit.map((n, i) => [n.title, i + 1]));
 
-const STATUS_MAP: Record<ProjectStatus, "completed" | "in-progress" | "pending"> = {
-  Live: "completed",
-  Beta: "in-progress",
-  Building: "pending",
-};
-
-// Stable id per slug so relatedIds can be resolved from relatedSlugs.
-const idForSlug = new Map(projects.map((p, i) => [p.slug, i + 1]));
-
-const timelineData = projects.map((p, i) => {
-  const meta = ORBIT_META[p.slug];
-  return {
-    id: i + 1,
-    title: p.name,
-    date: p.category,
-    content: p.oneLiner,
-    category: p.category,
-    icon: meta.icon,
-    relatedIds: meta.relatedSlugs.map((s) => idForSlug.get(s)!),
-    status: STATUS_MAP[p.status],
-    energy: meta.energy,
-  };
-});
+const timelineData = orbit.map((n, i) => ({
+  id: i + 1,
+  title: n.title,
+  badge: n.kind,
+  date: n.tag,
+  content: n.blurb,
+  category: n.kind,
+  icon: n.icon,
+  relatedIds: n.related.map((t) => idForTitle.get(t)!),
+  status: n.status,
+  energy: n.focus,
+}));
 
 export function Hero() {
   return (
@@ -133,6 +102,7 @@ export function Hero() {
           <RadialOrbitalTimeline
             className="h-full"
             timelineData={timelineData}
+            metricLabel="Focus"
             centerLabel="Teddy Bui"
             centerContent={
               <Image
