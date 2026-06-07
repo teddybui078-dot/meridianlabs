@@ -55,7 +55,7 @@ export function HubCard({
         <div
           className={cn(
             "relative flex h-full flex-col rounded-[calc(1.75rem-0.375rem)] border border-ink-950/[0.06] bg-card",
-            featured ? "gap-6 p-7 sm:p-9" : "gap-4 p-6",
+            featured ? "justify-center gap-5 p-7 sm:p-9" : "gap-4 p-6",
           )}
         >
           {/* icon tile */}
@@ -73,7 +73,7 @@ export function HubCard({
             />
           </span>
 
-          <div className="flex flex-1 flex-col">
+          <div className={cn("flex flex-col", !featured && "flex-1")}>
             <h3
               className={cn(
                 "font-semibold tracking-[-0.02em] text-ink-950",
@@ -94,10 +94,10 @@ export function HubCard({
 
           {/* CTA */}
           {featured ? (
-            <span className="group/cta inline-flex w-fit items-center gap-2.5 rounded-full bg-ink-950 py-3 pl-6 pr-3 text-sm font-semibold text-cream transition-colors duration-300 ease-[var(--ease-out-quint)] group-hover:bg-ink-800">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-ink-950 py-2 pl-4 pr-2 text-[13px] font-semibold text-cream transition-colors duration-300 ease-[var(--ease-out-quint)] group-hover:bg-ink-800">
               {cta}
-              <span className="grid size-7 place-items-center rounded-full bg-white/15 transition-transform duration-300 ease-[var(--ease-out-quint)] group-hover:translate-x-0.5">
-                <ArrowRight className="size-3.5" />
+              <span className="grid size-6 place-items-center rounded-full bg-white/15 transition-transform duration-300 ease-[var(--ease-out-quint)] group-hover:translate-x-0.5">
+                <ArrowRight className="size-3" />
               </span>
             </span>
           ) : (
