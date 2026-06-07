@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "@/components/ui/scroll-reveal";
@@ -11,6 +13,14 @@ export function ProjectCard({
   project: Project;
   delay?: number;
 }) {
+  // Track the cursor as CSS custom props so the spotlight paints on the GPU
+  // without re-rendering React on every mouse move.
+  function handleMouse(e: React.MouseEvent<HTMLDivElement>) {
+    const r = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
+  }
+
   return (
     <Reveal delay={delay} className="h-full">
       <a
@@ -20,7 +30,19 @@ export function ProjectCard({
         className="group flex h-full flex-col"
       >
         {/* preview */}
-        <div className="relative overflow-hidden rounded-2xl border border-ink-950/[0.07] bg-card shadow-[0_1px_2px_rgba(22,18,13,0.05),0_12px_30px_-18px_rgba(22,18,13,0.16)] transition-shadow duration-300 group-hover:shadow-[0_2px_4px_rgba(22,18,13,0.06),0_22px_50px_-22px_rgba(22,18,13,0.28)]">
+        <div
+          onMouseMove={handleMouse}
+          className="relative overflow-hidden rounded-2xl border border-ink-950/[0.07] bg-card shadow-[0_1px_2px_rgba(22,18,13,0.05),0_12px_30px_-18px_rgba(22,18,13,0.16)] transition-all duration-500 ease-[var(--ease-out-quint)] group-hover:-translate-y-1 group-hover:shadow-[0_2px_4px_rgba(22,18,13,0.06),0_28px_56px_-22px_rgba(22,18,13,0.3)]"
+        >
+          {/* mouse-tracked spotlight */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            style={{
+              background:
+                "radial-gradient(340px circle at var(--mx) var(--my), rgba(22,18,13,0.06), transparent 60%)",
+            }}
+          />
           <div className="flex items-center gap-1.5 px-4 pt-4">
             <span className="size-2 rounded-full bg-ink-950/10" />
             <span className="size-2 rounded-full bg-ink-950/10" />
