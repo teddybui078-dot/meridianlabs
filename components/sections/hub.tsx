@@ -123,7 +123,7 @@ export function Hub() {
           ))}
         </div>
 
-        <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {socialCards.map((card, i) => (
             <Reveal key={card.title} delay={0.05 * i} className="h-full">
               <HubCard card={card} className="h-full" />

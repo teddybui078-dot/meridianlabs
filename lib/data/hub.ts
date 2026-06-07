@@ -4,7 +4,7 @@ import {
   PenLine,
   type LucideIcon,
 } from "lucide-react";
-import { FaXTwitter, FaGithub, FaInstagram, FaYoutube } from "react-icons/fa6";
+import { FaXTwitter, FaGithub, FaInstagram } from "react-icons/fa6";
 import type { IconType } from "react-icons";
 
 /**
@@ -81,14 +81,5 @@ export const socialCards: HubCard[] = [
     icon: FaInstagram,
     external: true,
     brand: "#E4405F",
-  },
-  {
-    title: "YouTube",
-    description: "Build logs & demos.",
-    href: "https://youtube.com",
-    cta: "Subscribe",
-    icon: FaYoutube,
-    external: true,
-    brand: "#FF0000",
   },
 ];
