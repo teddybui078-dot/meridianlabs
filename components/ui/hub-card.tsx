@@ -63,20 +63,21 @@ export function HubCard({
             featured && !children && "justify-center",
           )}
         >
-          {/* icon tile */}
-          <span
-            className={cn(
-              "grid place-items-center rounded-2xl border border-ink-950/[0.08] bg-cream",
-              "shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]",
-              featured ? "size-14" : "size-11",
-            )}
-          >
-            <Icon
-              className={cn(featured ? "size-7" : "size-[22px]")}
-              style={brand ? { color: brand } : undefined}
-              {...(!brand ? { strokeWidth: 1.6 } : {})}
-            />
-          </span>
+          {/* icon tile — section cards only; social cards stay text-only */}
+          {!brand && (
+            <span
+              className={cn(
+                "grid place-items-center rounded-2xl border border-ink-950/[0.08] bg-cream",
+                "shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]",
+                featured ? "size-14" : "size-11",
+              )}
+            >
+              <Icon
+                className={cn(featured ? "size-7" : "size-[22px]")}
+                strokeWidth={1.6}
+              />
+            </span>
+          )}
 
           <div className={cn("flex flex-col", !featured && !children && "flex-1")}>
             <h3
